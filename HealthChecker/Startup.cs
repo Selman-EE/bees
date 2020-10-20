@@ -29,6 +29,7 @@ namespace HealthChecker
             services.AddHealthChecksUI(options=> {
                 options.SetEvaluationTimeInSeconds(5);
                 options.MaximumHistoryEntriesPerEndpoint(60);
+                options.SetMinimumSecondsBetweenFailureNotifications(60);
                 options.AddHealthCheckEndpoint("WebAppDemo", "https://localhost:5001/health");            
             }).AddInMemoryStorage();
         }
